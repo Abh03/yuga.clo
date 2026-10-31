@@ -8,10 +8,9 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Yuga - Premium Clothing by Design",
+  title: "Yuga | The First Edit",
   description:
-    "Discover premium, in-house designed apparel from Yuga. High-quality loose-fit shirts and winter hoodies with custom packaging experience.",
-  generator: "v0.app",
+    "Discover Yuga's first collection: a shirt in white and black, and a black hoodie. Explore the pieces and the lookbook.",
   icons: {
     icon: [
       {

@@ -1,61 +1,32 @@
 export function Footer() {
   return (
-    <footer className="bg-background border-t border-border py-12 px-8">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-4 gap-8 mb-12">
+    <footer className="bg-[#171917] px-5 pb-8 pt-16 text-[#f3f1eb] md:px-10 md:pt-20">
+      <div className="mx-auto max-w-[1500px]">
+        <div className="grid gap-12 border-b border-white/20 pb-16 md:grid-cols-[1fr_auto_auto] md:gap-24">
           <div>
-            <h3 className="font-bold text-foreground mb-4">Yuga</h3>
-            <p className="text-sm text-foreground/70">Premium clothing, designed with care.</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/50">Yuga / The first edit</p>
+            <p className="mt-5 max-w-xs text-lg leading-relaxed text-white/70">A small collection for the everyday. One shirt. One hoodie. Your story.</p>
           </div>
-          <div>
-            <h4 className="font-semibold text-foreground mb-4">Shop</h4>
-            <ul className="space-y-2 text-sm text-foreground/70">
-              <li>
-                <a href="#" className="hover:text-foreground transition">
-                  Shirts
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-foreground transition">
-                  Hoodies
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold text-foreground mb-4">Company</h4>
-            <ul className="space-y-2 text-sm text-foreground/70">
-              <li>
-                <a href="#" className="hover:text-foreground transition">
-                  Our Story
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-foreground transition">
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold text-foreground mb-4">Follow</h4>
-            <ul className="space-y-2 text-sm text-foreground/70">
-              <li>
-                <a href="#" className="hover:text-foreground transition">
-                  Instagram
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-foreground transition">
-                  Twitter
-                </a>
-              </li>
-            </ul>
+          <nav aria-label="Footer" className="flex flex-col gap-4 text-sm">
+            <p className="mb-1 text-xs font-semibold uppercase tracking-[0.22em] text-white/45">Explore</p>
+            <a href="#collection" className="hover:text-white/60">The collection</a>
+            <a href="#story" className="hover:text-white/60">Our story</a>
+            <a href="#lookbook" className="hover:text-white/60">Lookbook</a>
+          </nav>
+          <div className="flex flex-col gap-4 text-sm">
+            <p className="mb-1 text-xs font-semibold uppercase tracking-[0.22em] text-white/45">Information</p>
+            <a href="#info" className="hover:text-white/60">Pricing & sizes</a>
+            <a href="#info" className="hover:text-white/60">Ordering</a>
+            <a href="#info" className="hover:text-white/60">Contact</a>
           </div>
         </div>
-        <div className="border-t border-border pt-8 text-center text-sm text-foreground/60">
-          <p>&copy; 2025 Yuga. All rights reserved.</p>
+        <div className="flex flex-col justify-between gap-3 pt-7 text-xs uppercase tracking-[0.16em] text-white/45 md:flex-row">
+          <span>© {new Date().getFullYear()} Yuga</span>
+          <span>Made for the everyday</span>
         </div>
+        <p aria-hidden="true" className="mt-7 overflow-hidden text-[clamp(7rem,23vw,26rem)] font-semibold leading-[0.75] tracking-[-0.11em]">
+          YUGA
+        </p>
       </div>
     </footer>
   )

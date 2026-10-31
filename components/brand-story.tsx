@@ -1,84 +1,36 @@
-"use client"
-
-import { useEffect, useRef, useState } from "react"
-import { motion } from "framer-motion"
+import { ArrowUpRight } from "lucide-react"
 
 export function BrandStory() {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const [scrollProgress, setScrollProgress] = useState(0)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!containerRef.current) return
-
-      const rect = containerRef.current.getBoundingClientRect()
-      const sectionTop = rect.top
-      const sectionHeight = rect.height
-      const viewportHeight = window.innerHeight
-
-      // Calculate progress: 0 when section enters, 1 when section exits
-      const progress = Math.max(0, Math.min(1, (viewportHeight - sectionTop) / (viewportHeight + sectionHeight)))
-      setScrollProgress(progress)
-    }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
-  const horizontalScroll = scrollProgress * 500
-
   return (
-    <section ref={containerRef} className="relative min-h-screen bg-black py-20 px-8 overflow-hidden">
-      <div className="max-w-7xl mx-auto h-full flex items-center gap-12">
-        {/* Sticky Left Title */}
-        <div className="sticky top-1/4 flex-shrink-0 w-full md:w-96">
-          <h2 className="text-6xl md:text-7xl font-black text-white mb-4 text-balance">From Scratch</h2>
-          <p className="text-lg text-white/60">Discover the story behind every Yuga piece</p>
+    <section id="story" className="scroll-mt-20 overflow-hidden bg-[#191b1a] text-[#f3f1eb]">
+      <div className="mx-auto grid max-w-[1700px] lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="flex flex-col justify-between px-5 py-16 md:px-10 md:py-24 lg:min-h-[800px] lg:px-14">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/60">01 / A little about us</p>
+          <div className="max-w-2xl py-16 lg:py-0">
+            <h2 className="text-[clamp(3.7rem,7.5vw,8rem)] font-semibold leading-[0.9] tracking-[-0.075em]">
+              Less, but<br /><span className="italic font-normal">more you.</span>
+            </h2>
+            <p className="mt-10 max-w-md text-lg leading-relaxed text-white/70">
+              Yuga starts with a simple idea: a small wardrobe with room for your own story. Our first edit is a shirt in white and black, and a black hoodie.
+            </p>
+            <p className="mt-5 max-w-md text-sm leading-relaxed text-white/50">
+              Wear them your way. Keep coming back to them.
+            </p>
+          </div>
+          <a href="#collection" className="inline-flex w-fit items-center gap-2 border-b border-white/50 pb-2 text-sm font-semibold">
+            Explore the first edit <ArrowUpRight size={17} aria-hidden="true" />
+          </a>
         </div>
-
-        {/* Horizontal Film Strip */}
-        <div className="flex-1 overflow-hidden">
-          <motion.div
-            className="flex gap-6"
-            animate={{ x: -horizontalScroll }}
-            transition={{ type: "spring", stiffness: 100, damping: 30 }}
-          >
-            {/* Image 1: Cotton Fabric */}
-            <div className="flex-shrink-0 w-96 h-96">
-              <img
-                src="/premium-cotton-fabric-macro-shot-close-up.jpg"
-                alt="Premium cotton fabric"
-                className="w-full h-full object-cover"
-              />
-            </div>
-
-            {/* Image 2: Packaging Experience */}
-            <div className="flex-shrink-0 w-96 h-96">
-              <img
-                src="/custom-designed-packaging-box-stickers-and-notes-y.jpg"
-                alt="Yuga custom packaging and experience"
-                className="w-full h-full object-cover"
-              />
-            </div>
-
-            {/* Image 3: Design Sketches */}
-            <div className="flex-shrink-0 w-96 h-96">
-              <img
-                src="/artistic-fashion-design-sketches-clothing-drawings.jpg"
-                alt="Design sketches and creative process"
-                className="w-full h-full object-cover"
-              />
-            </div>
-
-            {/* Image 4: Production */}
-            <div className="flex-shrink-0 w-96 h-96">
-              <img
-                src="/premium-clothing-production-workshop-craftsmanship.jpg"
-                alt="Production and craftsmanship"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </motion.div>
+        <div className="relative min-h-[480px] overflow-hidden bg-[#464d48] lg:min-h-[800px]">
+          <img
+            src="/photoshoot/hoodie-street.webp"
+            alt="Yuga black hoodie photographed on a city street"
+            className="absolute inset-0 h-full w-full object-cover object-center"
+          />
+          <div className="absolute bottom-5 left-5 right-5 flex justify-between gap-4 border-t border-white/60 pt-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-white md:bottom-8 md:left-8 md:right-8">
+            <span>Yuga / In the everyday</span>
+            <span>01—02</span>
+          </div>
         </div>
       </div>
     </section>
